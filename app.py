@@ -10,7 +10,7 @@ def generate_theoretical_pump_curve(q_duty, h_duty, target_efficiency, rho=1000,
     p_shaft_kw = p_shaft_w / 1000
     
     eta_duty = target_efficiency
-    q_array = np.linspace(0, q_duty * 1.5, 20)
+    q_array = np.linspace(0, q_duty * 1.2, 20)
     
     h0 = h_duty * 1.2
     k_head = (h0 - h_duty) / (q_duty**2)
@@ -112,4 +112,5 @@ with col_data:
     st.subheader("Tabular Data")
 
     st.dataframe(curve_data, height=400)
+
 

@@ -55,14 +55,14 @@ def calculate_pump_installed_cost(p_shaft_kw, cepci_current=800.0):
 
 # --- Web App Interface ---
 st.set_page_config(page_title="Pump Performance Model", layout="wide")
-st.title("Pedagogical Pump Performance & Cost Model")
+st.title("Pump Performance & Cost Model")
 st.markdown("Analyze theoretical centrifugal pump curves and estimate bare module costs based on fundamental thermodynamic scaling.")
 
 # Sidebar Inputs
 st.sidebar.header("Operating Parameters")
 Q_DUTY = st.sidebar.number_input("Design Flow Rate (m3/h)", min_value=10.0, max_value=1000.0, value=100.0, step=10.0)
 H_DUTY = st.sidebar.number_input("Design Head (m)", min_value=5.0, max_value=500.0, value=50.0, step=5.0)
-TARGET_EFFICIENCY = st.sidebar.slider("Target Efficiency", min_value=0.50, max_value=0.95, value=0.85, step=0.01)
+#TARGET_EFFICIENCY = st.sidebar.slider("Target Efficiency", min_value=0.50, max_value=0.95, value=0.85, step=0.01)
 
 # Execution
 curve_data, q_d, h_d, eta_d, npshr_d, calc_p_kw = generate_theoretical_pump_curve(Q_DUTY, H_DUTY, TARGET_EFFICIENCY)
@@ -109,4 +109,5 @@ with col_chart:
 
 with col_data:
     st.subheader("Tabular Data")
+
     st.dataframe(curve_data, height=400)

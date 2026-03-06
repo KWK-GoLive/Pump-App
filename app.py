@@ -54,7 +54,7 @@ DRIVER_POWER_KW = st.sidebar.number_input("Driver power (KW)", min_value=0.1, ma
 
 
 st.sidebar.header("Thermodynamic Assumptions")
-TARGET_BEP = st.sidebar.slider("Target Peak Efficiency", min_value=0.50, max_value=0.95, value=0.80, step=0.01)
+#TARGET_BEP = st.sidebar.slider("Target Peak Efficiency", min_value=0.50, max_value=0.95, value=0.80, step=0.01)
 TARGET_BEP = 0.8
 
 # Execution
@@ -105,4 +105,5 @@ with col_chart:
 with col_data:
     st.subheader("Tabular Data")
     st.dataframe(curve_data, height=400)
+
 

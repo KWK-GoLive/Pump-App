@@ -52,8 +52,10 @@ Q_DUTY_LS = st.sidebar.number_input("Liquid flow rate (L/S)", min_value=1.0, max
 H_DUTY = st.sidebar.number_input("Fluid head (M)", min_value=1.0, max_value=200.0, value=12.489, step=1.0, format="%.3f")
 DRIVER_POWER_KW = st.sidebar.number_input("Driver power (KW)", min_value=0.1, max_value=1000.0, value=5.500, step=0.1, format="%.3f")
 
+
 st.sidebar.header("Thermodynamic Assumptions")
 TARGET_BEP = st.sidebar.slider("Target Peak Efficiency", min_value=0.50, max_value=0.95, value=0.80, step=0.01)
+TARGET_BEP = 0.8
 
 # Execution
 curve_data, q_duty_m3h, calc_p_kw = generate_standard_water_curve_target_bep(Q_DUTY_LS, H_DUTY, TARGET_BEP)
@@ -103,3 +105,4 @@ with col_chart:
 with col_data:
     st.subheader("Tabular Data")
     st.dataframe(curve_data, height=400)
+

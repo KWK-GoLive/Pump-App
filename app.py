@@ -44,7 +44,7 @@ def generate_standard_water_curve_target_bep(q_duty_ls, h_duty, target_eta=0.80,
 # --- Web App Interface ---
 st.set_page_config(page_title="Standard Pump Performance Model", layout="wide")
 st.title("Standard Manufacturer Pump Performance Model")
-st.markdown("Generates performance curves calibrated for clear water at 20°C and calculates the motor safety margin based on required absorbed power.")
+#st.markdown("Generates performance curves calibrated for clear water at 20°C and calculates the motor safety margin based on required absorbed power.")
 
 # Sidebar Inputs
 st.sidebar.header("Datasheet Parameters")
@@ -62,7 +62,7 @@ curve_data, q_duty_m3h, calc_p_kw = generate_standard_water_curve_target_bep(Q_D
 safety_margin = ((DRIVER_POWER_KW / calc_p_kw) - 1) * 100
 
 # Output Metrics
-st.subheader("Thermodynamic Adjustments (Standard Water at 20°C)")
+#st.subheader("Thermodynamic Adjustments (Standard Water at 20°C)")
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Target Peak Efficiency", f"{TARGET_BEP * 100:.1f}%")
 col2.metric("Datasheet Motor Power", f"{DRIVER_POWER_KW:.2f} kW")
@@ -105,6 +105,7 @@ with col_chart:
 with col_data:
     st.subheader("Tabular Data")
     st.dataframe(curve_data, height=400)
+
 
 
 
